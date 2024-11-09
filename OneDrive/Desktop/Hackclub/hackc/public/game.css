@@ -1,0 +1,111 @@
+.game-page h1 {
+    font-size: 90px;
+    color: var(--gold);
+    text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.7),
+        3px 3px 6px rgba(0, 0, 0, 0.8);
+    margin: 10px 0 20px 0;
+    text-align: center;
+    animation: titleGlow 2s infinite alternate;
+}
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(100px, 160px));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+    width: 80vw;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+    justify-content: center;
+    align-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+.card {
+    width: 100%;
+    aspect-ratio: 1;
+    max-width: 160px;
+    margin: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+}
+.card:hover:not(.flipped):not(.matched) {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+.card.flipped {
+    transform: rotateY(180deg);
+}
+.card.matched {
+    animation: cardMatch 0.5s ease-in-out;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+.card.wrong {
+    animation: wrongShake 0.5s ease-in-out;
+}
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold);
+}
+.card-front {
+    background: url('images/card-back.png') center/cover;
+    border: 3px solid var(--gold);
+}
+.card-back {
+    background: #F5F5DC;
+    transform: rotateY(180deg);
+    border: 3px solid var(--gold);
+}
+.card-back img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    filter: brightness(1.2);
+}
+@keyframes cardMatch {
+    0% { transform: scale(1) rotateY(180deg); }
+    50% { transform: scale(1.1) rotateY(180deg); }
+    100% { transform: scale(1) rotateY(180deg); }
+}
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0) rotateY(180deg); }
+    25% { transform: translateX(-10px) rotateY(180deg); }
+    75% { transform: translateX(10px) rotateY(180deg); }
+}
+@media (max-width: 768px) {
+    .game-page h1 {
+        font-size: 60px;
+    }
+    .game-board {
+        grid-template-columns: repeat(6, minmax(80px, 120px));
+        gap: 5px;
+    }
+    .card {
+        max-width: 120px;
+    }
+} 

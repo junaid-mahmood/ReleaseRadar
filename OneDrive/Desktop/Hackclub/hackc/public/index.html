@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate's Match</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <div class="current-user">
+        Playing as: <span id="currentUsername">Anonymous</span>
+    </div>
+    <div class="landing-container">
+        <div class="main-content">
+            <h1>Pirate's Match</h1>
+            <div class="landing-content">
+                <p class="game-description">Test your memory with this pirate-themed matching game! Match pairs of cards to score points and complete the challenge.</p>
+                <a href="/game.html" class="plank-button start-button">Play Now!</a>
+            </div>
+        </div>
+        <div class="leaderboard-container">
+            <h2>Top Pirates</h2>
+            <div class="leaderboard-scroll">
+                <table class="leaderboard">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Pirate</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Vex_9</td><td>1250</td><td>1:15</td></tr>
+                        <tr><td>2</td><td>Kr4ken</td><td>1180</td><td>1:30</td></tr>
+                        <tr><td>3</td><td>Blitz</td><td>1050</td><td>1:45</td></tr>
+                        <tr><td>4</td><td>Rogue_X</td><td>980</td><td>2:00</td></tr>
+                        <tr><td>5</td><td>Zenith</td><td>920</td><td>2:10</td></tr>
+                        <tr><td>6</td><td>Lynx_22</td><td>850</td><td>2:15</td></tr>
+                        <tr><td>7</td><td>Frost</td><td>780</td><td>2:30</td></tr>
+                        <tr><td>8</td><td>Neo_99</td><td>720</td><td>2:45</td></tr>
+                        <tr><td>9</td><td>Storm</td><td>650</td><td>3:00</td></tr>
+                        <tr><td>10</td><td>Havoc</td><td>600</td><td>3:15</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="username-container">
+                <input type="text" id="username" placeholder="Enter your pirate name" class="username-input">
+                <button class="save-username-btn">Set Sail!</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const usernameInput = document.getElementById('username');
+            const saveButton = document.querySelector('.save-username-btn');
+            const currentUsername = document.getElementById('currentUsername');
+            
+            // Load saved username if it exists
+            const savedUsername = localStorage.getItem('pirateUsername');
+            if (savedUsername) {
+                currentUsername.textContent = savedUsername;
+            }
+
+            saveButton.addEventListener('click', () => {
+                let username = usernameInput.value.trim();
+                if (username === '') {
+                    username = 'Anonymous';
+                }
+                currentUsername.textContent = username;
+                localStorage.setItem('pirateUsername', username);
+                usernameInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

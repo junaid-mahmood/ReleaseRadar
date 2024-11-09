@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirate's Match - Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+</head>
+<body class="game-page">
+    <a href="/" class="back-button">← Back to Home</a>
+    <div class="current-user">
+        Playing as: <span id="currentUsername">Anonymous</span>
+    </div>
+    <div class="game-container">
+        <header>
+            <h1>Pirate's Match</h1>
+            <div class="game-stats">
+                <div class="barrel-container">
+                    <div class="barrel">
+                        <span>Time:</span>
+                        <span id="timer">0:00</span>
+                    </div>
+                </div>
+                <div class="chest-container">
+                    <div class="chest">
+                        <span>Score:</span>
+                        <span id="score">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="gameBoard" class="game-board" data-difficulty="easy"></div>
+    </div>
+    <audio id="flipSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+    <audio id="matchSound" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3" preload="auto"></audio>
+    <audio id="wrongSound" src="https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3" preload="auto"></audio>
+    <script src="game.js"></script>
+</body>
+</html> 
