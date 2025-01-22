@@ -33,6 +33,8 @@ Check out the live app here: [ReleaseRadar](https://release-radar-vert.vercel.ap
 
 **add your API keys to a .env file**
 
+*disclosure, AI was used in parts of this project.
+
 
 
 Made  by junaid-mahmood
